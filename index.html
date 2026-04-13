@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учебная симуляция фишинга</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ Учебная фишинг-симуляция</h1>
+        
+        <div class="warning">
+            <strong>Вы перешли по ссылке из учебного письма.</strong>
+            <p>Это тренировка по кибербезопасности. Никакой реальной угрозы нет.</p>
+        </div>
+        
+        <h2>Что нужно запомнить:</h2>
+        <ul>
+            <li>Всегда проверяйте адрес отправителя</li>
+            <li>Не переходите по подозрительным ссылкам</li>
+            <li>Обращайте внимание на грамматические ошибки</li>
+            <li>При сомнениях — спросите у ИТ-отдела</li>
+        </ul>
+        
+        <p>Вы перешли по ссылке: <strong id="timestamp"></strong></p>
+        
+        <button onclick="window.location.href='https://ваша-компания.ru/обучение'">
+            Перейти к обучающим материалам
+        </button>
+    </div>
+    
+    <script>
+        document.getElementById('timestamp').innerText = new Date().toLocaleString();
+        
+        // Отправка статистики (опционально)
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => console.log('IP:', data.ip));
+    </script>
+</body>
+</html>
